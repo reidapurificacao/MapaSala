@@ -52,6 +52,7 @@ namespace MapaSala.Formularios
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(100, 20);
             this.txtNome.TabIndex = 0;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // label1
             // 
@@ -61,6 +62,7 @@ namespace MapaSala.Formularios
             this.label1.Size = new System.Drawing.Size(72, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Nome da sala";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -70,6 +72,7 @@ namespace MapaSala.Formularios
             this.label2.Size = new System.Drawing.Size(129, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Número de computadores";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -79,6 +82,7 @@ namespace MapaSala.Formularios
             this.label3.Size = new System.Drawing.Size(103, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Número de Cadeiras";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -88,6 +92,7 @@ namespace MapaSala.Formularios
             this.label4.Size = new System.Drawing.Size(16, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Id";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtId
             // 
@@ -95,6 +100,7 @@ namespace MapaSala.Formularios
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(44, 20);
             this.txtId.TabIndex = 7;
+            this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
             // 
             // chkIsLab
             // 
@@ -105,6 +111,7 @@ namespace MapaSala.Formularios
             this.chkIsLab.TabIndex = 8;
             this.chkIsLab.Text = "É laboratório";
             this.chkIsLab.UseVisualStyleBackColor = true;
+            this.chkIsLab.CheckedChanged += new System.EventHandler(this.chkIsLab_CheckedChanged);
             // 
             // chkDisponivel
             // 
@@ -115,6 +122,7 @@ namespace MapaSala.Formularios
             this.chkDisponivel.TabIndex = 9;
             this.chkDisponivel.Text = "Disponível";
             this.chkDisponivel.UseVisualStyleBackColor = true;
+            this.chkDisponivel.CheckedChanged += new System.EventHandler(this.chkDisponivel_CheckedChanged);
             // 
             // btnSalvar
             // 
@@ -132,6 +140,7 @@ namespace MapaSala.Formularios
             this.txtNumPc.Name = "txtNumPc";
             this.txtNumPc.Size = new System.Drawing.Size(120, 20);
             this.txtNumPc.TabIndex = 11;
+            this.txtNumPc.ValueChanged += new System.EventHandler(this.txtNumPc_ValueChanged);
             // 
             // txtNumCadeira
             // 
@@ -139,6 +148,7 @@ namespace MapaSala.Formularios
             this.txtNumCadeira.Name = "txtNumCadeira";
             this.txtNumCadeira.Size = new System.Drawing.Size(112, 20);
             this.txtNumCadeira.TabIndex = 12;
+            this.txtNumCadeira.ValueChanged += new System.EventHandler(this.txtNumCadeira_ValueChanged);
             // 
             // dtGridSalas
             // 
@@ -147,6 +157,7 @@ namespace MapaSala.Formularios
             this.dtGridSalas.Name = "dtGridSalas";
             this.dtGridSalas.Size = new System.Drawing.Size(673, 352);
             this.dtGridSalas.TabIndex = 13;
+            this.dtGridSalas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridSalas_CellContentClick);
             // 
             // frmSalas
             // 
