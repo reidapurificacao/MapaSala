@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.Entitidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace MapaSala.Formularios
 {
     public partial class FrmProfessores : Form
     {
+        BindingSource dados;
         public FrmProfessores()
         {
             InitializeComponent();
+            dados = new BindingSource();
+            dtGridPro.DataSource = dados;
         }
 
         private void dtGridSalas_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -27,14 +31,13 @@ namespace MapaSala.Formularios
 
         }
 
-        private void txtNumPc_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-
+            ProfessoresEntidade p = new ProfessoresEntidade();
+            p.Id = Convert.ToInt32(NumID.Value);
+            p.Apelido = txtApelidopro.Text;
+            p.Nome = txtNomepro.Text;
+            dados.Add(p);
         }
 
         private void chkDisponivel_CheckedChanged(object sender, EventArgs e)

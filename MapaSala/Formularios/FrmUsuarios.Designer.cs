@@ -31,22 +31,24 @@ namespace MapaSala.Formularios
         {
             this.txtSenhaUser = new System.Windows.Forms.TextBox();
             this.txtGmailUser = new System.Windows.Forms.TextBox();
-            this.dtGridSalas = new System.Windows.Forms.DataGridView();
+            this.dtGridUser = new System.Windows.Forms.DataGridView();
             this.btnSalvarpro = new System.Windows.Forms.Button();
             this.chkAtivoUser = new System.Windows.Forms.CheckBox();
-            this.txtUser = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNomeUser = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridSalas)).BeginInit();
+            this.NumUser = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumUser)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSenhaUser
             // 
             this.txtSenhaUser.Location = new System.Drawing.Point(440, 35);
             this.txtSenhaUser.Name = "txtSenhaUser";
+            this.txtSenhaUser.PasswordChar = '*';
             this.txtSenhaUser.Size = new System.Drawing.Size(100, 20);
             this.txtSenhaUser.TabIndex = 38;
             // 
@@ -56,14 +58,15 @@ namespace MapaSala.Formularios
             this.txtGmailUser.Name = "txtGmailUser";
             this.txtGmailUser.Size = new System.Drawing.Size(100, 20);
             this.txtGmailUser.TabIndex = 37;
+            this.txtGmailUser.TextChanged += new System.EventHandler(this.txtGmailUser_TextChanged);
             // 
-            // dtGridSalas
+            // dtGridUser
             // 
-            this.dtGridSalas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGridSalas.Location = new System.Drawing.Point(65, 81);
-            this.dtGridSalas.Name = "dtGridSalas";
-            this.dtGridSalas.Size = new System.Drawing.Size(673, 352);
-            this.dtGridSalas.TabIndex = 36;
+            this.dtGridUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridUser.Location = new System.Drawing.Point(65, 81);
+            this.dtGridUser.Name = "dtGridUser";
+            this.dtGridUser.Size = new System.Drawing.Size(673, 352);
+            this.dtGridUser.TabIndex = 36;
             // 
             // btnSalvarpro
             // 
@@ -73,6 +76,7 @@ namespace MapaSala.Formularios
             this.btnSalvarpro.TabIndex = 35;
             this.btnSalvarpro.Text = "Salvar";
             this.btnSalvarpro.UseVisualStyleBackColor = true;
+            this.btnSalvarpro.Click += new System.EventHandler(this.btnSalvarpro_Click);
             // 
             // chkAtivoUser
             // 
@@ -83,13 +87,6 @@ namespace MapaSala.Formularios
             this.chkAtivoUser.TabIndex = 34;
             this.chkAtivoUser.Text = "Ativo";
             this.chkAtivoUser.UseVisualStyleBackColor = true;
-            // 
-            // txtUser
-            // 
-            this.txtUser.Location = new System.Drawing.Point(130, 35);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(44, 20);
-            this.txtUser.TabIndex = 33;
             // 
             // label4
             // 
@@ -116,7 +113,7 @@ namespace MapaSala.Formularios
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 13);
             this.label2.TabIndex = 30;
-            this.label2.Text = "Gmail";
+            this.label2.Text = "Login";
             // 
             // label1
             // 
@@ -135,17 +132,25 @@ namespace MapaSala.Formularios
             this.txtNomeUser.TabIndex = 28;
             this.txtNomeUser.TextChanged += new System.EventHandler(this.txtNomepro_TextChanged);
             // 
+            // NumUser
+            // 
+            this.NumUser.Location = new System.Drawing.Point(108, 39);
+            this.NumUser.Name = "NumUser";
+            this.NumUser.Size = new System.Drawing.Size(72, 20);
+            this.NumUser.TabIndex = 39;
+            this.NumUser.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
             // FrmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.NumUser);
             this.Controls.Add(this.txtSenhaUser);
             this.Controls.Add(this.txtGmailUser);
-            this.Controls.Add(this.dtGridSalas);
+            this.Controls.Add(this.dtGridUser);
             this.Controls.Add(this.btnSalvarpro);
             this.Controls.Add(this.chkAtivoUser);
-            this.Controls.Add(this.txtUser);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -154,7 +159,8 @@ namespace MapaSala.Formularios
             this.Name = "FrmUsuarios";
             this.Text = "FrmUsuarios";
             this.Load += new System.EventHandler(this.FrmUsuarios_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridSalas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,14 +170,14 @@ namespace MapaSala.Formularios
 
         private System.Windows.Forms.TextBox txtSenhaUser;
         private System.Windows.Forms.TextBox txtGmailUser;
-        private System.Windows.Forms.DataGridView dtGridSalas;
+        private System.Windows.Forms.DataGridView dtGridUser;
         private System.Windows.Forms.Button btnSalvarpro;
         private System.Windows.Forms.CheckBox chkAtivoUser;
-        private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNomeUser;
+        private System.Windows.Forms.NumericUpDown NumUser;
     }
 }

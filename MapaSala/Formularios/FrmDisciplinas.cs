@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Model.Entitidades;
 namespace MapaSala.Formularios
 {
     public partial class FrmDisciplinas : Form
     {
+        BindingSource dados;
         public FrmDisciplinas()
         {
             InitializeComponent();
+            dados = new BindingSource();
+            dtGridDisci.DataSource = dados;
         }
 
         private void chkDisponivelpro_CheckedChanged(object sender, EventArgs e)
@@ -34,7 +37,12 @@ namespace MapaSala.Formularios
 
         private void btnSalvarpro_Click(object sender, EventArgs e)
         {
+            DisciplinasEntidade d = new DisciplinasEntidade();
+            d.Id = Convert.ToInt32(NumDisci.Value);
+            d.Sigla = txtSigla.Text;
+            d.Nome = txtNomeDisci.Text;
 
+            dados.Add(d);
         }
 
         private void txtDisciplina_TextChanged(object sender, EventArgs e)
@@ -73,6 +81,11 @@ namespace MapaSala.Formularios
         }
 
         private void FrmDisciplinas_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NumDisci_ValueChanged(object sender, EventArgs e)
         {
 
         }

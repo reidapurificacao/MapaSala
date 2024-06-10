@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model.Entitidades;
 
 namespace MapaSala.Formularios
 {
     public partial class FrmUsuarios : Form
     {
+        BindingSource dados;
         public FrmUsuarios()
         {
             InitializeComponent();
+            dados = new BindingSource();
+            dtGridUser.DataSource = dados;
         }
 
         private void txtNomepro_TextChanged(object sender, EventArgs e)
@@ -23,6 +27,26 @@ namespace MapaSala.Formularios
         }
 
         private void FrmUsuarios_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalvarpro_Click(object sender, EventArgs e)
+        {
+            UsuariosEntidade u = new UsuariosEntidade();
+            u.Id = Convert.ToInt32(NumUser.Value);
+            u.Senha = txtSenhaUser.Text;
+            u.Login = txtGmailUser.Text;
+            u.Nome = txtNomeUser.Text;
+            dados.Add(u);
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtGmailUser_TextChanged(object sender, EventArgs e)
         {
 
         }

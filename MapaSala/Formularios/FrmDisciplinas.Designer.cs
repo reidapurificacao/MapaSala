@@ -30,15 +30,16 @@ namespace MapaSala.Formularios
         private void InitializeComponent()
         {
             this.txtSigla = new System.Windows.Forms.TextBox();
-            this.dtGridSalas = new System.Windows.Forms.DataGridView();
+            this.dtGridDisci = new System.Windows.Forms.DataGridView();
             this.btnSalvarDisci = new System.Windows.Forms.Button();
             this.chkAtivoDisci = new System.Windows.Forms.CheckBox();
-            this.txtIdDisci = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNomeDisci = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridSalas)).BeginInit();
+            this.NumDisci = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridDisci)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumDisci)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSigla
@@ -49,14 +50,14 @@ namespace MapaSala.Formularios
             this.txtSigla.TabIndex = 37;
             this.txtSigla.TextChanged += new System.EventHandler(this.txtApelidopro_TextChanged);
             // 
-            // dtGridSalas
+            // dtGridDisci
             // 
-            this.dtGridSalas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGridSalas.Location = new System.Drawing.Point(65, 81);
-            this.dtGridSalas.Name = "dtGridSalas";
-            this.dtGridSalas.Size = new System.Drawing.Size(673, 352);
-            this.dtGridSalas.TabIndex = 36;
-            this.dtGridSalas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridSalas_CellContentClick);
+            this.dtGridDisci.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridDisci.Location = new System.Drawing.Point(65, 81);
+            this.dtGridDisci.Name = "dtGridDisci";
+            this.dtGridDisci.Size = new System.Drawing.Size(673, 352);
+            this.dtGridDisci.TabIndex = 36;
+            this.dtGridDisci.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridSalas_CellContentClick);
             // 
             // btnSalvarDisci
             // 
@@ -79,14 +80,6 @@ namespace MapaSala.Formularios
             this.chkAtivoDisci.UseVisualStyleBackColor = true;
             this.chkAtivoDisci.CheckedChanged += new System.EventHandler(this.chkDisponivelpro_CheckedChanged);
             // 
-            // txtIdDisci
-            // 
-            this.txtIdDisci.Location = new System.Drawing.Point(80, 46);
-            this.txtIdDisci.Name = "txtIdDisci";
-            this.txtIdDisci.Size = new System.Drawing.Size(44, 20);
-            this.txtIdDisci.TabIndex = 33;
-            this.txtIdDisci.TextChanged += new System.EventHandler(this.txtIdpro_TextChanged);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -102,9 +95,9 @@ namespace MapaSala.Formularios
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(182, 30);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 31;
-            this.label3.Text = "Disciplina";
+            this.label3.Text = "Nome";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtNomeDisci
@@ -124,24 +117,33 @@ namespace MapaSala.Formularios
             this.label1.TabIndex = 39;
             this.label1.Text = "Sigla";
             // 
+            // NumDisci
+            // 
+            this.NumDisci.Location = new System.Drawing.Point(76, 47);
+            this.NumDisci.Name = "NumDisci";
+            this.NumDisci.Size = new System.Drawing.Size(61, 20);
+            this.NumDisci.TabIndex = 40;
+            this.NumDisci.ValueChanged += new System.EventHandler(this.NumDisci_ValueChanged);
+            // 
             // FrmDisciplinas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.NumDisci);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSigla);
-            this.Controls.Add(this.dtGridSalas);
+            this.Controls.Add(this.dtGridDisci);
             this.Controls.Add(this.btnSalvarDisci);
             this.Controls.Add(this.chkAtivoDisci);
-            this.Controls.Add(this.txtIdDisci);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtNomeDisci);
             this.Name = "FrmDisciplinas";
             this.Text = "FrmDisciplinas";
             this.Load += new System.EventHandler(this.FrmDisciplinas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridSalas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridDisci)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumDisci)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,13 +151,13 @@ namespace MapaSala.Formularios
 
         #endregion
         private System.Windows.Forms.TextBox txtSigla;
-        private System.Windows.Forms.DataGridView dtGridSalas;
+        private System.Windows.Forms.DataGridView dtGridDisci;
         private System.Windows.Forms.Button btnSalvarDisci;
         private System.Windows.Forms.CheckBox chkAtivoDisci;
-        private System.Windows.Forms.TextBox txtIdDisci;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNomeDisci;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown NumDisci;
     }
 }

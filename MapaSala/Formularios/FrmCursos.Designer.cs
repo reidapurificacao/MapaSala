@@ -31,14 +31,15 @@ namespace MapaSala.Formularios
         {
             this.label1 = new System.Windows.Forms.Label();
             this.txtTurno = new System.Windows.Forms.TextBox();
-            this.dtGridSalas = new System.Windows.Forms.DataGridView();
+            this.dtGridCursos = new System.Windows.Forms.DataGridView();
             this.btnSalvarTurno = new System.Windows.Forms.Button();
             this.chkAtivoTurno = new System.Windows.Forms.CheckBox();
-            this.txtIdCurso = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNomeCurso = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridSalas)).BeginInit();
+            this.NumCurso = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridCursos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumCurso)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -57,13 +58,13 @@ namespace MapaSala.Formularios
             this.txtTurno.Size = new System.Drawing.Size(100, 20);
             this.txtTurno.TabIndex = 47;
             // 
-            // dtGridSalas
+            // dtGridCursos
             // 
-            this.dtGridSalas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGridSalas.Location = new System.Drawing.Point(64, 75);
-            this.dtGridSalas.Name = "dtGridSalas";
-            this.dtGridSalas.Size = new System.Drawing.Size(673, 352);
-            this.dtGridSalas.TabIndex = 46;
+            this.dtGridCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridCursos.Location = new System.Drawing.Point(64, 75);
+            this.dtGridCursos.Name = "dtGridCursos";
+            this.dtGridCursos.Size = new System.Drawing.Size(673, 352);
+            this.dtGridCursos.TabIndex = 46;
             // 
             // btnSalvarTurno
             // 
@@ -73,6 +74,7 @@ namespace MapaSala.Formularios
             this.btnSalvarTurno.TabIndex = 45;
             this.btnSalvarTurno.Text = "Salvar";
             this.btnSalvarTurno.UseVisualStyleBackColor = true;
+            this.btnSalvarTurno.Click += new System.EventHandler(this.btnSalvarTurno_Click);
             // 
             // chkAtivoTurno
             // 
@@ -83,13 +85,6 @@ namespace MapaSala.Formularios
             this.chkAtivoTurno.TabIndex = 44;
             this.chkAtivoTurno.Text = "Ativo";
             this.chkAtivoTurno.UseVisualStyleBackColor = true;
-            // 
-            // txtIdCurso
-            // 
-            this.txtIdCurso.Location = new System.Drawing.Point(79, 40);
-            this.txtIdCurso.Name = "txtIdCurso";
-            this.txtIdCurso.Size = new System.Drawing.Size(44, 20);
-            this.txtIdCurso.TabIndex = 43;
             // 
             // label4
             // 
@@ -117,24 +112,32 @@ namespace MapaSala.Formularios
             this.txtNomeCurso.Size = new System.Drawing.Size(100, 20);
             this.txtNomeCurso.TabIndex = 40;
             // 
+            // NumCurso
+            // 
+            this.NumCurso.Location = new System.Drawing.Point(64, 41);
+            this.NumCurso.Name = "NumCurso";
+            this.NumCurso.Size = new System.Drawing.Size(71, 20);
+            this.NumCurso.TabIndex = 49;
+            // 
             // FrmCursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.NumCurso);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtTurno);
-            this.Controls.Add(this.dtGridSalas);
+            this.Controls.Add(this.dtGridCursos);
             this.Controls.Add(this.btnSalvarTurno);
             this.Controls.Add(this.chkAtivoTurno);
-            this.Controls.Add(this.txtIdCurso);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtNomeCurso);
             this.Name = "FrmCursos";
             this.Text = "FrmCursos";
             this.Load += new System.EventHandler(this.FrmCursos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridSalas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridCursos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumCurso)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,12 +147,12 @@ namespace MapaSala.Formularios
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTurno;
-        private System.Windows.Forms.DataGridView dtGridSalas;
+        private System.Windows.Forms.DataGridView dtGridCursos;
         private System.Windows.Forms.Button btnSalvarTurno;
         private System.Windows.Forms.CheckBox chkAtivoTurno;
-        private System.Windows.Forms.TextBox txtIdCurso;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNomeCurso;
+        private System.Windows.Forms.NumericUpDown NumCurso;
     }
 }
