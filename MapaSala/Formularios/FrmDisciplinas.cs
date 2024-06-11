@@ -12,7 +12,8 @@ namespace MapaSala.Formularios
 {
     public partial class FrmDisciplinas : Form
     {
-        BindingSource dados;
+        DataTable dados;
+        int LinhaSelecionada;
         public FrmDisciplinas()
         {
             InitializeComponent();
@@ -103,6 +104,11 @@ namespace MapaSala.Formularios
         private void BtnLimparDisci_Click(object sender, EventArgs e)
         {
             Limpardados();
+        }
+
+        private void BtnExcluir_Click(object sender, EventArgs e)
+        {
+            dtGridDisci.Rows.RemoveAt(LinhaSelecionada);
         }
     }
 }

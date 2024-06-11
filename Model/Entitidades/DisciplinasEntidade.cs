@@ -13,5 +13,10 @@ namespace Model.Entitidades
         public string Nome { get; set; }
         public string Sigla { get; set; }
         public bool Ativo { get; set; }
+        public object[] linha()
+        {
+            return new object[] { Id, Nome, Sigla, Ativo };
+        }
     }
 }
+//
