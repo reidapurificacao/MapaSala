@@ -38,6 +38,7 @@ namespace MapaSala.Formularios
             this.label3 = new System.Windows.Forms.Label();
             this.txtNomeCurso = new System.Windows.Forms.TextBox();
             this.NumCurso = new System.Windows.Forms.NumericUpDown();
+            this.BtnLimparCurso = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridCursos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumCurso)).BeginInit();
             this.SuspendLayout();
@@ -68,7 +69,7 @@ namespace MapaSala.Formularios
             // 
             // btnSalvarTurno
             // 
-            this.btnSalvarTurno.Location = new System.Drawing.Point(626, 28);
+            this.btnSalvarTurno.Location = new System.Drawing.Point(593, 38);
             this.btnSalvarTurno.Name = "btnSalvarTurno";
             this.btnSalvarTurno.Size = new System.Drawing.Size(75, 23);
             this.btnSalvarTurno.TabIndex = 45;
@@ -85,6 +86,7 @@ namespace MapaSala.Formularios
             this.chkAtivoTurno.TabIndex = 44;
             this.chkAtivoTurno.Text = "Ativo";
             this.chkAtivoTurno.UseVisualStyleBackColor = true;
+            this.chkAtivoTurno.CheckedChanged += new System.EventHandler(this.chkAtivoTurno_CheckedChanged);
             // 
             // label4
             // 
@@ -118,12 +120,24 @@ namespace MapaSala.Formularios
             this.NumCurso.Name = "NumCurso";
             this.NumCurso.Size = new System.Drawing.Size(71, 20);
             this.NumCurso.TabIndex = 49;
+            this.NumCurso.ValueChanged += new System.EventHandler(this.NumCurso_ValueChanged);
+            // 
+            // BtnLimparCurso
+            // 
+            this.BtnLimparCurso.Location = new System.Drawing.Point(674, 38);
+            this.BtnLimparCurso.Name = "BtnLimparCurso";
+            this.BtnLimparCurso.Size = new System.Drawing.Size(75, 23);
+            this.BtnLimparCurso.TabIndex = 50;
+            this.BtnLimparCurso.Text = "Limpar";
+            this.BtnLimparCurso.UseVisualStyleBackColor = true;
+            this.BtnLimparCurso.Click += new System.EventHandler(this.BtnLimparCurso_Click);
             // 
             // FrmCursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BtnLimparCurso);
             this.Controls.Add(this.NumCurso);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtTurno);
@@ -154,5 +168,6 @@ namespace MapaSala.Formularios
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNomeCurso;
         private System.Windows.Forms.NumericUpDown NumCurso;
+        private System.Windows.Forms.Button BtnLimparCurso;
     }
 }

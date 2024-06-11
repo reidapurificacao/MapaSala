@@ -38,6 +38,7 @@ namespace MapaSala.Formularios
             p.Apelido = txtApelidopro.Text;
             p.Nome = txtNomepro.Text;
             dados.Add(p);
+            Limpardados();
         }
 
         private void chkDisponivel_CheckedChanged(object sender, EventArgs e)
@@ -86,6 +87,21 @@ namespace MapaSala.Formularios
         }
 
         private void txtApelidopro_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void Limpardados()
+        {
+            txtNomepro.Text = "";
+            txtApelidopro.Text = "";
+            NumID.Value = 0;
+        }
+        private void BtnLimpar_Click(object sender, EventArgs e)
+        {
+            Limpardados();
+        }
+
+        private void NumID_ValueChanged(object sender, EventArgs e)
         {
 
         }

@@ -39,7 +39,29 @@ namespace MapaSala.Formularios
             c.id = Convert.ToInt32(NumCurso.Value);
             c.Turno = txtTurno.Text;
             c.nome = txtNomeCurso.Text;
+            c.Ativo = chkAtivoTurno.Checked;
             dados.Add(c);
+            Limpardados();
+        }
+        private void Limpardados()
+        {
+            txtNomeCurso.Text = "";
+            txtTurno.Text = "";
+            NumCurso.Value = 0;
+        }
+        private void BtnLimparCurso_Click(object sender, EventArgs e)
+        {
+            Limpardados();
+        }
+
+        private void NumCurso_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkAtivoTurno_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -38,6 +38,7 @@ namespace MapaSala.Formularios
             this.txtNomeDisci = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.NumDisci = new System.Windows.Forms.NumericUpDown();
+            this.BtnLimparDisci = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridDisci)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumDisci)).BeginInit();
             this.SuspendLayout();
@@ -61,7 +62,7 @@ namespace MapaSala.Formularios
             // 
             // btnSalvarDisci
             // 
-            this.btnSalvarDisci.Location = new System.Drawing.Point(627, 34);
+            this.btnSalvarDisci.Location = new System.Drawing.Point(602, 44);
             this.btnSalvarDisci.Name = "btnSalvarDisci";
             this.btnSalvarDisci.Size = new System.Drawing.Size(75, 23);
             this.btnSalvarDisci.TabIndex = 35;
@@ -125,11 +126,22 @@ namespace MapaSala.Formularios
             this.NumDisci.TabIndex = 40;
             this.NumDisci.ValueChanged += new System.EventHandler(this.NumDisci_ValueChanged);
             // 
+            // BtnLimparDisci
+            // 
+            this.BtnLimparDisci.Location = new System.Drawing.Point(683, 46);
+            this.BtnLimparDisci.Name = "BtnLimparDisci";
+            this.BtnLimparDisci.Size = new System.Drawing.Size(75, 23);
+            this.BtnLimparDisci.TabIndex = 51;
+            this.BtnLimparDisci.Text = "Limpar";
+            this.BtnLimparDisci.UseVisualStyleBackColor = true;
+            this.BtnLimparDisci.Click += new System.EventHandler(this.BtnLimparDisci_Click);
+            // 
             // FrmDisciplinas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BtnLimparDisci);
             this.Controls.Add(this.NumDisci);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSigla);
@@ -159,5 +171,6 @@ namespace MapaSala.Formularios
         private System.Windows.Forms.TextBox txtNomeDisci;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown NumDisci;
+        private System.Windows.Forms.Button BtnLimparDisci;
     }
 }

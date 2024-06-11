@@ -40,6 +40,7 @@ namespace MapaSala.Formularios
             this.label1 = new System.Windows.Forms.Label();
             this.txtNomeUser = new System.Windows.Forms.TextBox();
             this.NumUser = new System.Windows.Forms.NumericUpDown();
+            this.BtnLimparUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumUser)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +71,7 @@ namespace MapaSala.Formularios
             // 
             // btnSalvarpro
             // 
-            this.btnSalvarpro.Location = new System.Drawing.Point(663, 35);
+            this.btnSalvarpro.Location = new System.Drawing.Point(625, 36);
             this.btnSalvarpro.Name = "btnSalvarpro";
             this.btnSalvarpro.Size = new System.Drawing.Size(75, 23);
             this.btnSalvarpro.TabIndex = 35;
@@ -140,11 +141,22 @@ namespace MapaSala.Formularios
             this.NumUser.TabIndex = 39;
             this.NumUser.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
+            // BtnLimparUser
+            // 
+            this.BtnLimparUser.Location = new System.Drawing.Point(709, 35);
+            this.BtnLimparUser.Name = "BtnLimparUser";
+            this.BtnLimparUser.Size = new System.Drawing.Size(79, 26);
+            this.BtnLimparUser.TabIndex = 40;
+            this.BtnLimparUser.Text = "Limpar";
+            this.BtnLimparUser.UseVisualStyleBackColor = true;
+            this.BtnLimparUser.Click += new System.EventHandler(this.BtnLimparUser_Click);
+            // 
             // FrmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BtnLimparUser);
             this.Controls.Add(this.NumUser);
             this.Controls.Add(this.txtSenhaUser);
             this.Controls.Add(this.txtGmailUser);
@@ -179,5 +191,6 @@ namespace MapaSala.Formularios
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNomeUser;
         private System.Windows.Forms.NumericUpDown NumUser;
+        private System.Windows.Forms.Button BtnLimparUser;
     }
 }

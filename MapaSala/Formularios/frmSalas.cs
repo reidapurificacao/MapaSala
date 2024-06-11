@@ -29,7 +29,7 @@ namespace MapaSala.Formularios
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             SalasEntidade sala = new SalasEntidade();
-            sala.Id = Convert.ToInt32(txtId.Text);
+            sala.Id = Convert.ToInt32(NumSalas.Text);
             sala.Nome = txtNome.Text;
             sala.IsLab = chkIsLab.Checked;
             sala.NumeroCadeiras = Convert.ToInt32(txtNumCadeira.Value);
@@ -37,6 +37,7 @@ namespace MapaSala.Formularios
             sala.Disponivel = chkDisponivel.Checked;
 
             dados.Add(sala);
+            Limpardados();
         }
 
         private void txtNumCadeira_ValueChanged(object sender, EventArgs e)
@@ -90,6 +91,26 @@ namespace MapaSala.Formularios
         }
 
         private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void Limpardados()
+        {
+            txtNome.Text = "";
+            txtNumPc.Text = "";
+            NumSalas.Value = 0;
+            txtNumPc.Value = 0;
+            txtNumCadeira.Value = 0;
+            chkDisponivel.Checked = false;
+            chkIsLab.Checked = false;
+
+        }
+        private void BtnLimparSalas_Click(object sender, EventArgs e)
+        {
+            Limpardados();
+        }
+
+        private void NumSalas_ValueChanged(object sender, EventArgs e)
         {
 
         }

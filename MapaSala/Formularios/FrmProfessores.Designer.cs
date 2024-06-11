@@ -37,6 +37,7 @@ namespace MapaSala.Formularios
             this.txtApelidopro = new System.Windows.Forms.TextBox();
             this.NumID = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
+            this.BtnLimpar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridPro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumID)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +55,7 @@ namespace MapaSala.Formularios
             // 
             this.btnSalvarpro.Location = new System.Drawing.Point(479, 35);
             this.btnSalvarpro.Name = "btnSalvarpro";
-            this.btnSalvarpro.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvarpro.Size = new System.Drawing.Size(75, 26);
             this.btnSalvarpro.TabIndex = 22;
             this.btnSalvarpro.Text = "Salvar";
             this.btnSalvarpro.UseVisualStyleBackColor = true;
@@ -102,6 +103,7 @@ namespace MapaSala.Formularios
             this.NumID.Name = "NumID";
             this.NumID.Size = new System.Drawing.Size(47, 20);
             this.NumID.TabIndex = 28;
+            this.NumID.ValueChanged += new System.EventHandler(this.NumID_ValueChanged);
             // 
             // label4
             // 
@@ -112,11 +114,22 @@ namespace MapaSala.Formularios
             this.label4.TabIndex = 29;
             this.label4.Text = "Id";
             // 
+            // BtnLimpar
+            // 
+            this.BtnLimpar.Location = new System.Drawing.Point(577, 35);
+            this.BtnLimpar.Name = "BtnLimpar";
+            this.BtnLimpar.Size = new System.Drawing.Size(79, 26);
+            this.BtnLimpar.TabIndex = 30;
+            this.BtnLimpar.Text = "Limpar";
+            this.BtnLimpar.UseVisualStyleBackColor = true;
+            this.BtnLimpar.Click += new System.EventHandler(this.BtnLimpar_Click);
+            // 
             // FrmProfessores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BtnLimpar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.NumID);
             this.Controls.Add(this.txtApelidopro);
@@ -144,5 +157,6 @@ namespace MapaSala.Formularios
         private System.Windows.Forms.TextBox txtApelidopro;
         private System.Windows.Forms.NumericUpDown NumID;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button BtnLimpar;
     }
 }

@@ -38,7 +38,9 @@ namespace MapaSala.Formularios
             u.Senha = txtSenhaUser.Text;
             u.Login = txtGmailUser.Text;
             u.Nome = txtNomeUser.Text;
+            u.Ativo = chkAtivoUser.Checked;
             dados.Add(u);
+            Limpardados();
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
@@ -49,6 +51,19 @@ namespace MapaSala.Formularios
         private void txtGmailUser_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        private void Limpardados()
+        {
+            txtNomeUser.Text = "";
+            txtSenhaUser.Text = "";
+            txtGmailUser.Text = "";
+            NumUser.Value = 0;
+            chkAtivoUser.Checked = false;
+
+        }
+        private void BtnLimparUser_Click(object sender, EventArgs e)
+        {
+            Limpardados();
         }
     }
 }

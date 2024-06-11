@@ -41,8 +41,10 @@ namespace MapaSala.Formularios
             d.Id = Convert.ToInt32(NumDisci.Value);
             d.Sigla = txtSigla.Text;
             d.Nome = txtNomeDisci.Text;
+            d.Ativo = chkAtivoDisci.Checked;
 
             dados.Add(d);
+            Limpardados();
         }
 
         private void txtDisciplina_TextChanged(object sender, EventArgs e)
@@ -88,6 +90,19 @@ namespace MapaSala.Formularios
         private void NumDisci_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+        private void Limpardados()
+        {
+            txtNomeDisci.Text = "";
+            txtSigla.Text = "";
+            NumDisci.Value = 0;
+            chkAtivoDisci.Checked = false;
+
+
+        }
+        private void BtnLimparDisci_Click(object sender, EventArgs e)
+        {
+            Limpardados();
         }
     }
 }
