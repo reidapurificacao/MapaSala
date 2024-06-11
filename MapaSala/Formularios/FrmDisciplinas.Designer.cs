@@ -53,6 +53,7 @@ namespace MapaSala.Formularios
             // 
             // dtGridDisci
             // 
+            this.dtGridDisci.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtGridDisci.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGridDisci.Location = new System.Drawing.Point(65, 81);
             this.dtGridDisci.Name = "dtGridDisci";

@@ -91,7 +91,7 @@ namespace MapaSala.Formularios
         {
 
         }
-        private void Limpardados()
+        private void Limpardados()//Criei a função de apagar em todas e fiz o botao de limpar dados em todas dia 11/06/2024
         {
             txtNomeDisci.Text = "";
             txtSigla.Text = "";

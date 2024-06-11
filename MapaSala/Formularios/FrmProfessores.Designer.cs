@@ -44,6 +44,7 @@ namespace MapaSala.Formularios
             // 
             // dtGridPro
             // 
+            this.dtGridPro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtGridPro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGridPro.Location = new System.Drawing.Point(65, 81);
             this.dtGridPro.Name = "dtGridPro";
