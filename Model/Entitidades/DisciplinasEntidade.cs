@@ -8,11 +8,12 @@ namespace Model.Entitidades
 {
     public class DisciplinasEntidade
     {
-        public int id { get; set; }
+      
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Sigla { get; set; }
         public bool Ativo { get; set; }
+
         public object[] linha()
         {
             return new object[] { Id, Nome, Sigla, Ativo };

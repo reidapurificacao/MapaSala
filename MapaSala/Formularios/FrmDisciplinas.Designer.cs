@@ -62,7 +62,6 @@ namespace MapaSala.Formularios
             this.dtGridDisci.Size = new System.Drawing.Size(673, 352);
             this.dtGridDisci.TabIndex = 36;
             this.dtGridDisci.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridDisci_CellClick);
-            this.dtGridDisci.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridSalas_CellContentClick);
             // 
             // btnSalvarDisci
             // 

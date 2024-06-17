@@ -39,11 +39,6 @@ namespace MapaSala.Formularios
 
         }
 
-        private void dtGridSalas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnSalvarpro_Click(object sender, EventArgs e)
         {
             DisciplinasEntidade d = new DisciplinasEntidade();
@@ -97,7 +92,7 @@ namespace MapaSala.Formularios
             a.Cells[0].Value = NumDisci.Value;
             a.Cells[1].Value = txtNomeDisci.Text;
             a.Cells[2].Value = txtSigla.Text;
-
+            a.Cells[3].Value = chkAtivoDisci.Checked;
         }
         private void Limpardados()//Criei a função de apagar em todas e fiz o botao de limpar dados em todas dia 11/06/2024
         {
@@ -121,10 +116,12 @@ namespace MapaSala.Formularios
         private void dtGridDisci_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             LinhaSelecionada = e.RowIndex;//fazer isso em todos
-            txtNomeDisci.Text = dtGridDisci.Rows[LinhaSelecionada].Cells[1].ToString();
-            txtSigla.Text = dtGridDisci.Rows[LinhaSelecionada].Cells[2].ToString();
+
+
+            txtNomeDisci.Text = dtGridDisci.Rows[LinhaSelecionada].Cells[1].Value.ToString();
+            txtSigla.Text = dtGridDisci.Rows[LinhaSelecionada].Cells[2].Value.ToString();
             NumDisci.Value = Convert.ToInt32(dtGridDisci.Rows[LinhaSelecionada].Cells[0].Value);
-            chkAtivoDisci.Checked = Convert.ToBoolean(dtGridDisci.Rows[LinhaSelecionada].Cells[5].Value);
+            chkAtivoDisci.Checked = Convert.ToBoolean(dtGridDisci.Rows[LinhaSelecionada].Cells[3].Value);
 
         }
     }
