@@ -13,14 +13,22 @@ namespace MapaSala.Formularios
 {
     public partial class FrmProfessores : Form
     {
-        BindingSource dados;
+        DataTable dados;//novo
+        int LinhaSelecionada;
         public FrmProfessores()
         {
             InitializeComponent();
-            dados = new BindingSource();
+            dados = new DataTable();//novo
             dtGridPro.DataSource = dados;
-        }
+            foreach (var atributos in typeof(DisciplinasEntidade).GetProperties())//novo
+            {
+                dados.Columns.Add(atributos.Name);
+            }
 
+            dados.Rows.Add(1, "Matematica", "MAT", true);
+            dados.Rows.Add(2, "Portugues", "PORT", true);
+            dados.Rows.Add(3, "Física", "FIS", true);
+        }
         private void dtGridSalas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -37,7 +45,7 @@ namespace MapaSala.Formularios
             p.Id = Convert.ToInt32(NumID.Value);
             p.Apelido = txtApelidopro.Text;
             p.Nome = txtNomepro.Text;
-            dados.Add(p);
+            dados.Rows.Add(p.linha());
             Limpardados();
         }
 
@@ -104,6 +112,15 @@ namespace MapaSala.Formularios
         private void NumID_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dtGridPro_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            LinhaSelecionada = e.RowIndex;
+            txtApelidopro.Text = dtGridPro.Rows[LinhaSelecionada].Cells[1].ToString();
+            txtNomepro.Text = dtGridPro.Rows[LinhaSelecionada].Cells[2].ToString();
+            NumID.Value = Convert.ToInt32(dtGridPro.Rows[LinhaSelecionada].Cells[0].Value);
         }
     }
 }

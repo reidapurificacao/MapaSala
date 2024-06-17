@@ -40,6 +40,7 @@ namespace MapaSala.Formularios
             this.NumDisci = new System.Windows.Forms.NumericUpDown();
             this.BtnLimparDisci = new System.Windows.Forms.Button();
             this.BtnExcluir = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridDisci)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumDisci)).BeginInit();
             this.SuspendLayout();
@@ -60,11 +61,12 @@ namespace MapaSala.Formularios
             this.dtGridDisci.Name = "dtGridDisci";
             this.dtGridDisci.Size = new System.Drawing.Size(673, 352);
             this.dtGridDisci.TabIndex = 36;
+            this.dtGridDisci.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridDisci_CellClick);
             this.dtGridDisci.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridSalas_CellContentClick);
             // 
             // btnSalvarDisci
             // 
-            this.btnSalvarDisci.Location = new System.Drawing.Point(602, 44);
+            this.btnSalvarDisci.Location = new System.Drawing.Point(601, 20);
             this.btnSalvarDisci.Name = "btnSalvarDisci";
             this.btnSalvarDisci.Size = new System.Drawing.Size(75, 23);
             this.btnSalvarDisci.TabIndex = 35;
@@ -130,7 +132,7 @@ namespace MapaSala.Formularios
             // 
             // BtnLimparDisci
             // 
-            this.BtnLimparDisci.Location = new System.Drawing.Point(683, 46);
+            this.BtnLimparDisci.Location = new System.Drawing.Point(682, 20);
             this.BtnLimparDisci.Name = "BtnLimparDisci";
             this.BtnLimparDisci.Size = new System.Drawing.Size(75, 23);
             this.BtnLimparDisci.TabIndex = 51;
@@ -140,7 +142,7 @@ namespace MapaSala.Formularios
             // 
             // BtnExcluir
             // 
-            this.BtnExcluir.Location = new System.Drawing.Point(521, 44);
+            this.BtnExcluir.Location = new System.Drawing.Point(520, 20);
             this.BtnExcluir.Name = "BtnExcluir";
             this.BtnExcluir.Size = new System.Drawing.Size(75, 23);
             this.BtnExcluir.TabIndex = 52;
@@ -148,11 +150,22 @@ namespace MapaSala.Formularios
             this.BtnExcluir.UseVisualStyleBackColor = true;
             this.BtnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(520, 49);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 53;
+            this.button1.Text = "Editar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.NumDisci_ValueChanged);
+            // 
             // FrmDisciplinas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.BtnExcluir);
             this.Controls.Add(this.BtnLimparDisci);
             this.Controls.Add(this.NumDisci);
@@ -186,5 +199,6 @@ namespace MapaSala.Formularios
         private System.Windows.Forms.NumericUpDown NumDisci;
         private System.Windows.Forms.Button BtnLimparDisci;
         private System.Windows.Forms.Button BtnExcluir;
+        private System.Windows.Forms.Button button1;
     }
 }

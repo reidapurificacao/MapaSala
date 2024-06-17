@@ -13,12 +13,21 @@ namespace MapaSala.Formularios
 {
     public partial class FrmUsuarios : Form
     {
-        BindingSource dados;
+        DataTable dados;//novo
+        int LinhaSelecionada;
         public FrmUsuarios()
         {
             InitializeComponent();
-            dados = new BindingSource();
+            dados = new DataTable();//novo
             dtGridUser.DataSource = dados;
+            foreach (var atributos in typeof(DisciplinasEntidade).GetProperties())//novo
+            {
+                dados.Columns.Add(atributos.Name);
+            }
+
+            dados.Rows.Add(1, "Matematica", "MAT", true);
+            dados.Rows.Add(2, "Portugues", "PORT", true);
+            dados.Rows.Add(3, "Física", "FIS", true);
         }
 
         private void txtNomepro_TextChanged(object sender, EventArgs e)
@@ -39,7 +48,7 @@ namespace MapaSala.Formularios
             u.Login = txtGmailUser.Text;
             u.Nome = txtNomeUser.Text;
             u.Ativo = chkAtivoUser.Checked;
-            dados.Add(u);
+            dados.Rows.Add(u.linha());
             Limpardados();
         }
 
@@ -64,6 +73,17 @@ namespace MapaSala.Formularios
         private void BtnLimparUser_Click(object sender, EventArgs e)
         {
             Limpardados();
+        }
+
+        private void dtGridUser_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            LinhaSelecionada = e.RowIndex;
+            txtNomeUser.Text = dtGridUser.Rows[LinhaSelecionada].Cells[2].ToString();
+            txtGmailUser.Text = dtGridUser.Rows[LinhaSelecionada].Cells[2].ToString();
+            txtSenhaUser.Text = dtGridUser.Rows[LinhaSelecionada].Cells[2].ToString();
+            NumUser.Value = Convert.ToInt32(dtGridUser.Rows[LinhaSelecionada].Cells[0].Value);
+            chkAtivoUser.Checked = Convert.ToBoolean(dtGridUser.Rows[LinhaSelecionada].Cells[5].Value);
+
         }
     }
 }

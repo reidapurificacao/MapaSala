@@ -50,6 +50,7 @@ namespace MapaSala.Formularios
             this.dtGridPro.Name = "dtGridPro";
             this.dtGridPro.Size = new System.Drawing.Size(673, 352);
             this.dtGridPro.TabIndex = 25;
+            this.dtGridPro.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridPro_CellClick);
             this.dtGridPro.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridSalas_CellContentClick);
             // 
             // btnSalvarpro

@@ -96,6 +96,7 @@ namespace MapaSala.Formularios
             this.dtGridUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtGridUser.Size = new System.Drawing.Size(673, 352);
             this.dtGridUser.TabIndex = 36;
+            this.dtGridUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridUser_CellClick);
             // 
             // btnSalvarpro
             // 

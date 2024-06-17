@@ -12,13 +12,21 @@ namespace MapaSala.Formularios
 {
     public partial class FrmDisciplinas : Form
     {
-        DataTable dados;
+        DataTable dados;//novo
         int LinhaSelecionada;
         public FrmDisciplinas()
         {
             InitializeComponent();
-            dados = new BindingSource();
+            dados = new DataTable();//novo
             dtGridDisci.DataSource = dados;
+            foreach (var atributos in typeof(DisciplinasEntidade).GetProperties())//novo
+            {
+                dados.Columns.Add(atributos.Name);
+            }
+
+            dados.Rows.Add(1, "Matematica", "MAT", true);
+            dados.Rows.Add(2, "Portugues", "PORT", true);
+            dados.Rows.Add(3, "Física", "FIS",true);
         }
 
         private void chkDisponivelpro_CheckedChanged(object sender, EventArgs e)
@@ -44,13 +52,8 @@ namespace MapaSala.Formularios
             d.Nome = txtNomeDisci.Text;
             d.Ativo = chkAtivoDisci.Checked;
 
-            dados.Add(d);
+            dados.Rows.Add( d.linha());//novo
             Limpardados();
-        }
-
-        private void txtDisciplina_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void txtIdpro_TextChanged(object sender, EventArgs e)
@@ -90,6 +93,10 @@ namespace MapaSala.Formularios
 
         private void NumDisci_ValueChanged(object sender, EventArgs e)
         {
+            DataGridViewRow a = dtGridDisci.Rows[LinhaSelecionada];//fazer isso em todas
+            a.Cells[0].Value = NumDisci.Value;
+            a.Cells[1].Value = txtNomeDisci.Text;
+            a.Cells[2].Value = txtSigla.Text;
 
         }
         private void Limpardados()//Criei a função de apagar em todas e fiz o botao de limpar dados em todas dia 11/06/2024
@@ -109,6 +116,16 @@ namespace MapaSala.Formularios
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
             dtGridDisci.Rows.RemoveAt(LinhaSelecionada);
+        }
+
+        private void dtGridDisci_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            LinhaSelecionada = e.RowIndex;//fazer isso em todos
+            txtNomeDisci.Text = dtGridDisci.Rows[LinhaSelecionada].Cells[1].ToString();
+            txtSigla.Text = dtGridDisci.Rows[LinhaSelecionada].Cells[2].ToString();
+            NumDisci.Value = Convert.ToInt32(dtGridDisci.Rows[LinhaSelecionada].Cells[0].Value);
+            chkAtivoDisci.Checked = Convert.ToBoolean(dtGridDisci.Rows[LinhaSelecionada].Cells[5].Value);
+
         }
     }
 }

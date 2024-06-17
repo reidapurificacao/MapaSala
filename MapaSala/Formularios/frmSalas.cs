@@ -13,12 +13,21 @@ namespace MapaSala.Formularios
 {
     public partial class frmSalas : Form
     {
-        BindingSource dados;
+        DataTable dados;//novo
+        int LinhaSelecionada;
         public frmSalas()
         {
             InitializeComponent();
-            dados = new BindingSource();
+            dados = new DataTable();//novo
             dtGridSalas.DataSource = dados;
+            foreach (var atributos in typeof(DisciplinasEntidade).GetProperties())//novo
+            {
+                dados.Columns.Add(atributos.Name);
+            }
+
+            dados.Rows.Add(1, "Matematica", "MAT", true);
+            dados.Rows.Add(2, "Portugues", "PORT", true);
+            dados.Rows.Add(3, "Física", "FIS", true);
         }
 
         private void frmSalas_Load(object sender, EventArgs e)
@@ -35,8 +44,7 @@ namespace MapaSala.Formularios
             sala.NumeroCadeiras = Convert.ToInt32(txtNumCadeira.Value);
             sala.NumeroComputadores = Convert.ToInt32(txtNumPc.Value);
             sala.Disponivel = chkDisponivel.Checked;
-
-            dados.Add(sala);
+            dados.Rows.Add(sala.linha());
             Limpardados();
         }
 
@@ -113,6 +121,16 @@ namespace MapaSala.Formularios
         private void NumSalas_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dtGridSalas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            LinhaSelecionada = e.RowIndex;
+            txtNome.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[2].ToString();
+            txtNumCadeira.Value = Convert.ToInt32(dtGridSalas.Rows[LinhaSelecionada].Cells[0].Value);
+            txtNumPc.Value = Convert.ToInt32(dtGridSalas.Rows[LinhaSelecionada].Cells[0].Value);
+            chkDisponivel.Checked = Convert.ToBoolean(dtGridSalas.Rows[LinhaSelecionada].Cells[5].Value);
+            chkIsLab.Checked = Convert.ToBoolean(dtGridSalas.Rows[LinhaSelecionada].Cells[5].Value);
         }
     }
 }
