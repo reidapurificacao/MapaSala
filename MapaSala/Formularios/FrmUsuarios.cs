@@ -20,14 +20,14 @@ namespace MapaSala.Formularios
             InitializeComponent();
             dados = new DataTable();//novo
             dtGridUser.DataSource = dados;
-            foreach (var atributos in typeof(DisciplinasEntidade).GetProperties())//novo
+            foreach (var atributos in typeof(UsuariosEntidade).GetProperties())//novo
             {
                 dados.Columns.Add(atributos.Name);
             }
 
-            dados.Rows.Add(1, "Matematica", "MAT", true);
-            dados.Rows.Add(2, "Portugues", "PORT", true);
-            dados.Rows.Add(3, "Física", "FIS", true);
+            dados.Rows.Add(1, "Wagner", "wawawawa@gmail.com","blava", true);
+            dados.Rows.Add(2, "lUCAS", "leifas@gmail.com","xioxo", true);
+            dados.Rows.Add(3, "Raphael", "papa@gmail.com","fafassf", true);
         }
 
         private void txtNomepro_TextChanged(object sender, EventArgs e)
@@ -78,12 +78,27 @@ namespace MapaSala.Formularios
         private void dtGridUser_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             LinhaSelecionada = e.RowIndex;
-            txtNomeUser.Text = dtGridUser.Rows[LinhaSelecionada].Cells[2].ToString();
-            txtGmailUser.Text = dtGridUser.Rows[LinhaSelecionada].Cells[2].ToString();
-            txtSenhaUser.Text = dtGridUser.Rows[LinhaSelecionada].Cells[2].ToString();
+            txtNomeUser.Text = dtGridUser.Rows[LinhaSelecionada].Cells[1].Value.ToString();
+            txtGmailUser.Text = dtGridUser.Rows[LinhaSelecionada].Cells[2].Value.ToString();
+            txtSenhaUser.Text = dtGridUser.Rows[LinhaSelecionada].Cells[3].Value.ToString();
             NumUser.Value = Convert.ToInt32(dtGridUser.Rows[LinhaSelecionada].Cells[0].Value);
-            chkAtivoUser.Checked = Convert.ToBoolean(dtGridUser.Rows[LinhaSelecionada].Cells[5].Value);
+            chkAtivoUser.Checked = Convert.ToBoolean(dtGridUser.Rows[LinhaSelecionada].Cells[4].Value);
 
+        }
+
+        private void BtnExcluircursos_Click(object sender, EventArgs e)
+        {
+            dtGridUser.Rows.RemoveAt(LinhaSelecionada);
+        }
+
+        private void btmeditarcurso_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow a = dtGridUser.Rows[LinhaSelecionada];//fazer isso em todas
+            a.Cells[0].Value = NumUser.Value;
+            a.Cells[1].Value = txtNomeUser.Text;
+            a.Cells[2].Value = txtGmailUser.Text;
+            a.Cells[3].Value = txtSenhaUser.Text;
+            a.Cells[4].Value = chkAtivoUser.Checked;
         }
     }
 }

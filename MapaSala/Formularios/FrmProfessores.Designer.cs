@@ -38,6 +38,8 @@ namespace MapaSala.Formularios
             this.NumID = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.BtnLimpar = new System.Windows.Forms.Button();
+            this.BtnExcluirProf = new System.Windows.Forms.Button();
+            this.btmeditarProf = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridPro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumID)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +57,7 @@ namespace MapaSala.Formularios
             // 
             // btnSalvarpro
             // 
-            this.btnSalvarpro.Location = new System.Drawing.Point(479, 35);
+            this.btnSalvarpro.Location = new System.Drawing.Point(582, 38);
             this.btnSalvarpro.Name = "btnSalvarpro";
             this.btnSalvarpro.Size = new System.Drawing.Size(75, 26);
             this.btnSalvarpro.TabIndex = 22;
@@ -118,7 +120,7 @@ namespace MapaSala.Formularios
             // 
             // BtnLimpar
             // 
-            this.BtnLimpar.Location = new System.Drawing.Point(577, 35);
+            this.BtnLimpar.Location = new System.Drawing.Point(680, 38);
             this.BtnLimpar.Name = "BtnLimpar";
             this.BtnLimpar.Size = new System.Drawing.Size(79, 26);
             this.BtnLimpar.TabIndex = 30;
@@ -126,11 +128,33 @@ namespace MapaSala.Formularios
             this.BtnLimpar.UseVisualStyleBackColor = true;
             this.BtnLimpar.Click += new System.EventHandler(this.BtnLimpar_Click);
             // 
+            // BtnExcluirProf
+            // 
+            this.BtnExcluirProf.Location = new System.Drawing.Point(582, 9);
+            this.BtnExcluirProf.Name = "BtnExcluirProf";
+            this.BtnExcluirProf.Size = new System.Drawing.Size(75, 23);
+            this.BtnExcluirProf.TabIndex = 57;
+            this.BtnExcluirProf.Text = "Excluir";
+            this.BtnExcluirProf.UseVisualStyleBackColor = true;
+            this.BtnExcluirProf.Click += new System.EventHandler(this.BtnExcluirProf_Click);
+            // 
+            // btmeditarProf
+            // 
+            this.btmeditarProf.Location = new System.Drawing.Point(663, 9);
+            this.btmeditarProf.Name = "btmeditarProf";
+            this.btmeditarProf.Size = new System.Drawing.Size(75, 23);
+            this.btmeditarProf.TabIndex = 56;
+            this.btmeditarProf.Text = "Editar";
+            this.btmeditarProf.UseVisualStyleBackColor = true;
+            this.btmeditarProf.Click += new System.EventHandler(this.btmeditarProf_Click);
+            // 
             // FrmProfessores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BtnExcluirProf);
+            this.Controls.Add(this.btmeditarProf);
             this.Controls.Add(this.BtnLimpar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.NumID);
@@ -160,5 +184,7 @@ namespace MapaSala.Formularios
         private System.Windows.Forms.NumericUpDown NumID;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button BtnLimpar;
+        private System.Windows.Forms.Button BtnExcluirProf;
+        private System.Windows.Forms.Button btmeditarProf;
     }
 }

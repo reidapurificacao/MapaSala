@@ -42,6 +42,8 @@ namespace MapaSala.Formularios
             this.dtGridSalas = new System.Windows.Forms.DataGridView();
             this.BtnLimparSalas = new System.Windows.Forms.Button();
             this.NumSalas = new System.Windows.Forms.NumericUpDown();
+            this.BtnExcluircursos = new System.Windows.Forms.Button();
+            this.btmeditarcurso = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumPc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumCadeira)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridSalas)).BeginInit();
@@ -99,7 +101,7 @@ namespace MapaSala.Formularios
             // chkIsLab
             // 
             this.chkIsLab.AutoSize = true;
-            this.chkIsLab.Location = new System.Drawing.Point(436, 33);
+            this.chkIsLab.Location = new System.Drawing.Point(437, 15);
             this.chkIsLab.Name = "chkIsLab";
             this.chkIsLab.Size = new System.Drawing.Size(85, 17);
             this.chkIsLab.TabIndex = 8;
@@ -110,7 +112,7 @@ namespace MapaSala.Formularios
             // chkDisponivel
             // 
             this.chkDisponivel.AutoSize = true;
-            this.chkDisponivel.Location = new System.Drawing.Point(527, 33);
+            this.chkDisponivel.Location = new System.Drawing.Point(528, 15);
             this.chkDisponivel.Name = "chkDisponivel";
             this.chkDisponivel.Size = new System.Drawing.Size(77, 17);
             this.chkDisponivel.TabIndex = 9;
@@ -173,11 +175,33 @@ namespace MapaSala.Formularios
             this.NumSalas.TabIndex = 32;
             this.NumSalas.ValueChanged += new System.EventHandler(this.NumSalas_ValueChanged);
             // 
+            // BtnExcluircursos
+            // 
+            this.BtnExcluircursos.Location = new System.Drawing.Point(434, 45);
+            this.BtnExcluircursos.Name = "BtnExcluircursos";
+            this.BtnExcluircursos.Size = new System.Drawing.Size(75, 23);
+            this.BtnExcluircursos.TabIndex = 57;
+            this.BtnExcluircursos.Text = "Excluir";
+            this.BtnExcluircursos.UseVisualStyleBackColor = true;
+            this.BtnExcluircursos.Click += new System.EventHandler(this.BtnExcluircursos_Click);
+            // 
+            // btmeditarcurso
+            // 
+            this.btmeditarcurso.Location = new System.Drawing.Point(515, 45);
+            this.btmeditarcurso.Name = "btmeditarcurso";
+            this.btmeditarcurso.Size = new System.Drawing.Size(75, 23);
+            this.btmeditarcurso.TabIndex = 56;
+            this.btmeditarcurso.Text = "Editar";
+            this.btmeditarcurso.UseVisualStyleBackColor = true;
+            this.btmeditarcurso.Click += new System.EventHandler(this.btmeditarcurso_Click);
+            // 
             // frmSalas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(702, 450);
+            this.Controls.Add(this.BtnExcluircursos);
+            this.Controls.Add(this.btmeditarcurso);
             this.Controls.Add(this.NumSalas);
             this.Controls.Add(this.BtnLimparSalas);
             this.Controls.Add(this.dtGridSalas);
@@ -219,5 +243,7 @@ namespace MapaSala.Formularios
         private System.Windows.Forms.DataGridView dtGridSalas;
         private System.Windows.Forms.Button BtnLimparSalas;
         private System.Windows.Forms.NumericUpDown NumSalas;
+        private System.Windows.Forms.Button BtnExcluircursos;
+        private System.Windows.Forms.Button btmeditarcurso;
     }
 }

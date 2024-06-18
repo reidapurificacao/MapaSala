@@ -25,9 +25,9 @@ namespace MapaSala.Formularios
                 dados.Columns.Add(atributos.Name);
             }
 
-            dados.Rows.Add(1, "Matematica", "MAT", true);
-            dados.Rows.Add(2, "Portugues", "PORT", true);
-            dados.Rows.Add(3, "Física", "FIS", true);
+            dados.Rows.Add(1, "jorge", "Jo");
+            dados.Rows.Add(2, "Lucilene", "Lu");
+            dados.Rows.Add(3, "Germano", "GG");
         }
         private void dtGridSalas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -118,9 +118,22 @@ namespace MapaSala.Formularios
         {
 
             LinhaSelecionada = e.RowIndex;
-            txtApelidopro.Text = dtGridPro.Rows[LinhaSelecionada].Cells[1].ToString();
-            txtNomepro.Text = dtGridPro.Rows[LinhaSelecionada].Cells[2].ToString();
+            txtApelidopro.Text = dtGridPro.Rows[LinhaSelecionada].Cells[2].Value.ToString();
+            txtNomepro.Text = dtGridPro.Rows[LinhaSelecionada].Cells[1].Value.ToString();
             NumID.Value = Convert.ToInt32(dtGridPro.Rows[LinhaSelecionada].Cells[0].Value);
+        }
+
+        private void BtnExcluirProf_Click(object sender, EventArgs e)
+        {
+            dtGridPro.Rows.RemoveAt(LinhaSelecionada);
+        }
+
+        private void btmeditarProf_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow a = dtGridPro.Rows[LinhaSelecionada];//fazer isso em todas
+            a.Cells[0].Value = NumID.Value;
+            a.Cells[1].Value = txtNomepro.Text;
+            a.Cells[2].Value = txtApelidopro.Text;
         }
     }
 }

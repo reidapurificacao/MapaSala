@@ -20,14 +20,14 @@ namespace MapaSala.Formularios
             InitializeComponent();
             dados = new DataTable();//novo
             dtGridSalas.DataSource = dados;
-            foreach (var atributos in typeof(DisciplinasEntidade).GetProperties())//novo
+            foreach (var atributos in typeof(SalasEntidade).GetProperties())//novo
             {
                 dados.Columns.Add(atributos.Name);
             }
 
-            dados.Rows.Add(1, "Matematica", "MAT", true);
-            dados.Rows.Add(2, "Portugues", "PORT", true);
-            dados.Rows.Add(3, "Física", "FIS", true);
+            dados.Rows.Add(1, "21", 20, 40, true, true);
+            dados.Rows.Add(2, "maker", 0, 35, true, true);
+            dados.Rows.Add(3, "11", 10, 24, true, true);
         }
 
         private void frmSalas_Load(object sender, EventArgs e)
@@ -126,11 +126,27 @@ namespace MapaSala.Formularios
         private void dtGridSalas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             LinhaSelecionada = e.RowIndex;
-            txtNome.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[2].ToString();
-            txtNumCadeira.Value = Convert.ToInt32(dtGridSalas.Rows[LinhaSelecionada].Cells[0].Value);
-            txtNumPc.Value = Convert.ToInt32(dtGridSalas.Rows[LinhaSelecionada].Cells[0].Value);
-            chkDisponivel.Checked = Convert.ToBoolean(dtGridSalas.Rows[LinhaSelecionada].Cells[5].Value);
+            txtNome.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[1].Value.ToString();
+            txtNumCadeira.Value = Convert.ToInt32(dtGridSalas.Rows[LinhaSelecionada].Cells[3].Value);
+            txtNumPc.Value = Convert.ToInt32(dtGridSalas.Rows[LinhaSelecionada].Cells[2].Value);
+            chkDisponivel.Checked = Convert.ToBoolean(dtGridSalas.Rows[LinhaSelecionada].Cells[4].Value);
             chkIsLab.Checked = Convert.ToBoolean(dtGridSalas.Rows[LinhaSelecionada].Cells[5].Value);
+        }
+
+        private void BtnExcluircursos_Click(object sender, EventArgs e)
+        {
+            dtGridSalas.Rows.RemoveAt(LinhaSelecionada);
+        }
+
+        private void btmeditarcurso_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow a = dtGridSalas.Rows[LinhaSelecionada];//fazer isso em todas
+            a.Cells[0].Value = NumSalas.Value;
+            a.Cells[1].Value = txtNome.Text;
+            a.Cells[2].Value = txtNumPc.Value;
+            a.Cells[3].Value = txtNumCadeira.Value;
+            a.Cells[4].Value = chkIsLab.Checked;
+            a.Cells[5].Value = chkDisponivel.Checked;
         }
     }
 }
