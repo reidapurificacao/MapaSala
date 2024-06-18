@@ -20,7 +20,7 @@ namespace MapaSala.Formularios
             InitializeComponent();
             dados = new DataTable();//novo
             dtGridPro.DataSource = dados;
-            foreach (var atributos in typeof(DisciplinasEntidade).GetProperties())//novo
+            foreach (var atributos in typeof(ProfessoresEntidade).GetProperties())//novo
             {
                 dados.Columns.Add(atributos.Name);
             }
