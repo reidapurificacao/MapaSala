@@ -1,6 +1,7 @@
 ﻿using Model.Entitidades;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace MapaSala.DAO
         {
             Conexao = new SqlConnection(LinhaConexao);
         }
-            public void Inserir (ProfessoresEntidade professor)
+        public void Inserir(ProfessoresEntidade professor)
         {
             Conexao.Open();
             string query = "Insert into professores (Nome, Apelido) Values(@Nome, @Apelido)";
@@ -28,5 +29,17 @@ namespace MapaSala.DAO
             comando.ExecuteNonQuery();
             Conexao.Close();
         }
+        public DataTable ObterProfessores()
+        {
+            Conexao.Open();
+            string query = "SELECT Id, Nome, Apelido  from Professores Order by Id desc";
+            SqlCommand comando = new SqlCommand(query, Conexao);
+            SqlDataReader Leitura = comando.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(Leitura);
+            Conexao.Close();
+            return dt;
+        }
+
+        }
     }
-}

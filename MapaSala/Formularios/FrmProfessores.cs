@@ -14,20 +14,20 @@ namespace MapaSala.Formularios
     public partial class FrmProfessores : Form
     {
         DataTable dados;//novo
+        ProfessorDAO dao = new ProfessorDAO();
         int LinhaSelecionada;
         public FrmProfessores()
         {
             InitializeComponent();
             dados = new DataTable();//novo
-            dtGridPro.DataSource = dados;
+            
             foreach (var atributos in typeof(ProfessoresEntidade).GetProperties())//novo
             {
                 dados.Columns.Add(atributos.Name);
             }
+            dados = dao.ObterProfessores();
 
-            dados.Rows.Add(1, "jorge", "Jo");
-            dados.Rows.Add(2, "Lucilene", "Lu");
-            dados.Rows.Add(3, "Germano", "GG");
+            dtGridPro.DataSource = dados;
         }
         private void dtGridSalas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -47,7 +47,9 @@ namespace MapaSala.Formularios
             p.Nome = txtNomepro.Text;
             ProfessorDAO dao = new ProfessorDAO();
             dao.Inserir(p);
-            dados.Rows.Add(p.linha());
+
+            dtGridPro.DataSource = dao.ObterProfessores();
+           
             Limpardados();
         }
 
