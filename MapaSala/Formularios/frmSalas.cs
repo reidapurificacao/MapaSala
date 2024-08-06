@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model.Entitidades;
-
+using MapaSala.DAO;
 namespace MapaSala.Formularios
 {
     public partial class frmSalas : Form

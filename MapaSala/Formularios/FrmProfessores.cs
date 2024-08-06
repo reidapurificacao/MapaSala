@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MapaSala.DAO;
 namespace MapaSala.Formularios
 {
     public partial class FrmProfessores : Form
@@ -45,6 +45,8 @@ namespace MapaSala.Formularios
             p.Id = Convert.ToInt32(NumID.Value);
             p.Apelido = txtApelidopro.Text;
             p.Nome = txtNomepro.Text;
+            ProfessorDAO dao = new ProfessorDAO();
+            dao.Inserir(p);
             dados.Rows.Add(p.linha());
             Limpardados();
         }

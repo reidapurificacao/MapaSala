@@ -10,7 +10,7 @@ namespace MapaSala.DAO
 {
     class ProfessorDAO
     {
-        private string LinhaConexao = "Server=LSO5MPF:Database=AULA_DS:User Id=sa;Password=admsasql;";
+        private string LinhaConexao = "Server=LS05MPF;Database=AULA_DS;User Id=sa;Password=admsasql;";
         private SqlConnection Conexao;
         public ProfessorDAO()
         {
@@ -19,7 +19,7 @@ namespace MapaSala.DAO
             public void Inserir (ProfessoresEntidade professor)
         {
             Conexao.Open();
-            string query = "Insert into ´professores (Nome, Apelido) Values(@Nome, @Apelido)";
+            string query = "Insert into professores (Nome, Apelido) Values(@Nome, @Apelido)";
             SqlCommand comando = new SqlCommand(query, Conexao);
             SqlParameter parametro1 = new SqlParameter("@Nome", professor.Nome);
             SqlParameter parametro2 = new SqlParameter("@Apelido", professor.Apelido);
