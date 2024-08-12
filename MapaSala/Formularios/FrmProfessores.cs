@@ -139,5 +139,10 @@ namespace MapaSala.Formularios
             a.Cells[1].Value = txtNomepro.Text;
             a.Cells[2].Value = txtApelidopro.Text;
         }
+
+        private void FrmProfessores_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

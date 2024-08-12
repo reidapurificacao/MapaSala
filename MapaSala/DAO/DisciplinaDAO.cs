@@ -9,21 +9,21 @@ using System.Threading.Tasks;
 
 namespace MapaSala.DAO
 {
-    class ProfessorDAO
+    class DisicplinaDAO
     {
         private string LinhaConexao = "Server=LS05MPF;Database=AULA_DS;User Id=sa;Password=admsasql;";
         private SqlConnection Conexao;
-        public ProfessorDAO()
+        public DisciplinaDAO()
         {
             Conexao = new SqlConnection(LinhaConexao);
         }
-        public void Inserir(ProfessoresEntidade professor)
+        public void Inserir(DisciplinasEntidade disciplina)
         {
             Conexao.Open();
-            string query = "Insert into professores (Nome, Apelido) Values(@Nome, @Apelido)";
+            string query = "Insert into Disciplinas (Nome, Sigla) Values(@Nome, @Sigla)";
             SqlCommand comando = new SqlCommand(query, Conexao);
-            SqlParameter parametro1 = new SqlParameter("@Nome", professor.Nome);
-            SqlParameter parametro2 = new SqlParameter("@Apelido", professor.Apelido);
+            SqlParameter parametro1 = new SqlParameter("@Nome", disciplina.Nome);
+            SqlParameter parametro2 = new SqlParameter("@Sigla", disciplina.Sigla);
             comando.Parameters.Add(parametro1);
             comando.Parameters.Add(parametro2);
             comando.ExecuteNonQuery();
@@ -32,7 +32,7 @@ namespace MapaSala.DAO
         public DataTable ObterProfessores()
         {
             Conexao.Open();
-            string query = "SELECT Id, Nome, Apelido  from Professores Order by Id desc";
+            string query = "SELECT Id, Nome, Sigla, Ativo from Disciplinas Order by Id desc";
             SqlCommand comando = new SqlCommand(query, Conexao);
             SqlDataReader Leitura = comando.ExecuteReader();
             DataTable dt = new DataTable();
@@ -41,6 +41,6 @@ namespace MapaSala.DAO
             return dt;
         }
 
-        }
     }
+}
 

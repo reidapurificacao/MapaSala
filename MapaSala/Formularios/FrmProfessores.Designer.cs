@@ -166,6 +166,7 @@ namespace MapaSala.Formularios
             this.Controls.Add(this.txtNomepro);
             this.Name = "FrmProfessores";
             this.Text = "\'";
+            this.Load += new System.EventHandler(this.FrmProfessores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtGridPro)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumID)).EndInit();
             this.ResumeLayout(false);

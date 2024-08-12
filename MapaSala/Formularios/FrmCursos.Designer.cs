@@ -60,6 +60,7 @@ namespace MapaSala.Formularios
             this.txtTurno.Name = "txtTurno";
             this.txtTurno.Size = new System.Drawing.Size(100, 20);
             this.txtTurno.TabIndex = 47;
+            this.txtTurno.TextChanged += new System.EventHandler(this.txtTurno_TextChanged);
             // 
             // dtGridCursos
             // 

@@ -1,5 +1,4 @@
-﻿using Model.Entitidades;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -9,21 +8,25 @@ using System.Threading.Tasks;
 
 namespace MapaSala.DAO
 {
-    class ProfessorDAO
+    class CursosDAO
     {
         private string LinhaConexao = "Server=LS05MPF;Database=AULA_DS;User Id=sa;Password=admsasql;";
         private SqlConnection Conexao;
-        public ProfessorDAO()
+        public CursosDAO()
         {
             Conexao = new SqlConnection(LinhaConexao);
         }
-        public void Inserir(ProfessoresEntidade professor)
+
+        public object Curso { get; private set; }
+
+        public void Inserir(CursoEntidades curso)
         {
             Conexao.Open();
-            string query = "Insert into professores (Nome, Apelido) Values(@Nome, @Apelido)";
+            string query = "Insert into Curso (Nome, Turno,Ativo) Values(@Nome, @Turno,@Ativo)";
             SqlCommand comando = new SqlCommand(query, Conexao);
-            SqlParameter parametro1 = new SqlParameter("@Nome", professor.Nome);
-            SqlParameter parametro2 = new SqlParameter("@Apelido", professor.Apelido);
+            SqlParameter parametro1 = new SqlParameter("@Nome", curso.Nome);
+            SqlParameter parametro2 = new SqlParameter("@Turno", curso.Turno);
+            SqlParameter parametro3 = new SqlParameter("@Turno", curso.Ativo);
             comando.Parameters.Add(parametro1);
             comando.Parameters.Add(parametro2);
             comando.ExecuteNonQuery();
@@ -32,7 +35,7 @@ namespace MapaSala.DAO
         public DataTable ObterProfessores()
         {
             Conexao.Open();
-            string query = "SELECT Id, Nome, Apelido  from Professores Order by Id desc";
+            string query = "SELECT Id, Nome, Turno, Ativo from Cursos Order by Id desc";
             SqlCommand comando = new SqlCommand(query, Conexao);
             SqlDataReader Leitura = comando.ExecuteReader();
             DataTable dt = new DataTable();
@@ -41,6 +44,6 @@ namespace MapaSala.DAO
             return dt;
         }
 
-        }
     }
+}
 

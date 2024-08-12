@@ -14,6 +14,7 @@ namespace MapaSala.Formularios
     public partial class FrmDisciplinas : Form
     {
         DataTable dados;//novo
+        ProfessorDAO dao = new ProfessorDAO();
         int LinhaSelecionada;
         public FrmDisciplinas()
         {

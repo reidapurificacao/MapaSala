@@ -15,6 +15,7 @@ namespace MapaSala.Formularios
     public partial class FrmCursos : Form
     {
         DataTable dados;//novo
+        ProfessorDAO dao = new ProfessorDAO();
         int LinhaSelecionada;
         public FrmCursos()
         {
@@ -99,6 +100,11 @@ namespace MapaSala.Formularios
         private void BtnExcluircursos_Click(object sender, EventArgs e)
         {
             dtGridCursos.Rows.RemoveAt(LinhaSelecionada);
+        }
+
+        private void txtTurno_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
