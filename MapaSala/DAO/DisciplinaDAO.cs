@@ -13,7 +13,7 @@ namespace MapaSala.DAO
     {
         private string LinhaConexao = "Server=LS05MPF;Database=AULA_DS;User Id=sa;Password=admsasql;";
         private SqlConnection Conexao;
-        public DisciplinaDAO()
+        public DisicplinaDAO()
         {
             Conexao = new SqlConnection(LinhaConexao);
         }
@@ -32,7 +32,7 @@ namespace MapaSala.DAO
         public DataTable ObterProfessores()
         {
             Conexao.Open();
-            string query = "SELECT Id, Nome, Sigla, Ativo from Disciplinas Order by Id desc";
+            string query = "SELECT Id, Nome, Sigla from Disciplinas Order by Id desc";
             SqlCommand comando = new SqlCommand(query, Conexao);
             SqlDataReader Leitura = comando.ExecuteReader();
             DataTable dt = new DataTable();

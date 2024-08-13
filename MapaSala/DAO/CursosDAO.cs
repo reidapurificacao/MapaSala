@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.Entitidades;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -24,11 +25,12 @@ namespace MapaSala.DAO
             Conexao.Open();
             string query = "Insert into Curso (Nome, Turno,Ativo) Values(@Nome, @Turno,@Ativo)";
             SqlCommand comando = new SqlCommand(query, Conexao);
-            SqlParameter parametro1 = new SqlParameter("@Nome", curso.Nome);
+            SqlParameter parametro1 = new SqlParameter("@Nome", curso.nome);
             SqlParameter parametro2 = new SqlParameter("@Turno", curso.Turno);
-            SqlParameter parametro3 = new SqlParameter("@Turno", curso.Ativo);
+            SqlParameter parametro3 = new SqlParameter("@Ativo", curso.Ativo);
             comando.Parameters.Add(parametro1);
             comando.Parameters.Add(parametro2);
+            comando.Parameters.Add(parametro3);
             comando.ExecuteNonQuery();
             Conexao.Close();
         }

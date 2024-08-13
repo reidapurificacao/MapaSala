@@ -119,6 +119,7 @@ namespace MapaSala.Formularios
             this.txtNomeCurso.Name = "txtNomeCurso";
             this.txtNomeCurso.Size = new System.Drawing.Size(100, 20);
             this.txtNomeCurso.TabIndex = 40;
+            this.txtNomeCurso.TextChanged += new System.EventHandler(this.txtNomeCurso_TextChanged);
             // 
             // NumCurso
             // 

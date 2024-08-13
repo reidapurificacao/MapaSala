@@ -15,7 +15,7 @@ namespace MapaSala.Formularios
     public partial class FrmCursos : Form
     {
         DataTable dados;//novo
-        ProfessorDAO dao = new ProfessorDAO();
+        CursosDAO dao = new CursosDAO();
         int LinhaSelecionada;
         public FrmCursos()
         {
@@ -103,6 +103,11 @@ namespace MapaSala.Formularios
         }
 
         private void txtTurno_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNomeCurso_TextChanged(object sender, EventArgs e)
         {
 
         }

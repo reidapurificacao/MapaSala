@@ -14,23 +14,27 @@ namespace MapaSala.Formularios
     public partial class frmSalas : Form
     {
         DataTable dados;//novo
+        ProfessorDAO dao = new ProfessorDAO();
         int LinhaSelecionada;
         public frmSalas()
         {
             InitializeComponent();
             dados = new DataTable();//novo
-            dtGridSalas.DataSource = dados;
-            foreach (var atributos in typeof(SalasEntidade).GetProperties())//novo
+
+            foreach (var atributos in typeof(ProfessoresEntidade).GetProperties())//novo
             {
                 dados.Columns.Add(atributos.Name);
             }
+            dados = dao.ObterProfessores();
+
+            dtGridSalas.DataSource = dados;
+        
 
             dados.Rows.Add(1, "21", 20, 40, true, true);
             dados.Rows.Add(2, "maker", 0, 35, true, true);
             dados.Rows.Add(3, "11", 10, 24, true, true);
         }
-
-        private void frmSalas_Load(object sender, EventArgs e)
+            private void frmSalas_Load(object sender, EventArgs e)
         {
            
         }
